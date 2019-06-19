@@ -37,19 +37,6 @@ class Diagnostic
     private $price;
 
     /**
-     * Diagnostic constructor.
-     * @param string $name
-     * @param string|null $description
-     * @param float $price
-     */
-    public function __construct(string $name, ?string $description, float $price)
-    {
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -58,9 +45,9 @@ class Diagnostic
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -90,9 +77,9 @@ class Diagnostic
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
