@@ -31,9 +31,9 @@ class DiagnosticRepository extends ServiceEntityRepository
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function delete(Diagnostic $diagnostic)
+    public function save(Diagnostic $diagnostic)
     {
-        $this->_em->remove($diagnostic);
+        $this->_em->persist($diagnostic);
         $this->_em->flush();
     }
 
@@ -42,9 +42,9 @@ class DiagnosticRepository extends ServiceEntityRepository
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Diagnostic $diagnostic)
+    public function delete(Diagnostic $diagnostic)
     {
-        $this->_em->persist($diagnostic);
+        $this->_em->remove($diagnostic);
         $this->_em->flush();
     }
 

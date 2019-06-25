@@ -37,19 +37,6 @@ class User
     private $role;
 
     /**
-     * User constructor.
-     * @param string $email
-     * @param string $password
-     * @param string $role
-     */
-    public function __construct(string $email, string $password, string $role)
-    {
-        $this->email = $email;
-        $this->password = $password;
-        $this->role = $role;
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -58,9 +45,9 @@ class User
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -74,9 +61,9 @@ class User
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -90,9 +77,9 @@ class User
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRole(): string
+    public function getRole(): ?string
     {
         return $this->role;
     }

@@ -18,6 +18,7 @@ class DiagnosticController extends AbstractController
 
     /**
      * DiagnosticController constructor.
+     * @param DiagnosticService $diagnosticService
      */
     public function __construct(DiagnosticService $diagnosticService)
     {
@@ -49,7 +50,7 @@ class DiagnosticController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->diagnosticService->addItem($diagnostic);
+            $this->diagnosticService->saveItem($diagnostic);
             return $this->redirectToRoute('diagnostic');
         }
 

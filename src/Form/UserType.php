@@ -1,15 +1,16 @@
 <?php
 
+
 namespace App\Form;
 
-use App\Entity\Diagnostic;
+
+use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class DiagnosticType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $formBuilder
@@ -18,9 +19,9 @@ class DiagnosticType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options)
     {
         $formBuilder
-            ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('price', TextType::class)
+            ->add('email', TextType::class)
+            ->add('password', TextType::class)
+            ->add('role', TextType::class)
         ;
     }
 
@@ -30,7 +31,7 @@ class DiagnosticType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Diagnostic::class,
+            'data_class' => User::class,
         ]);
     }
 }

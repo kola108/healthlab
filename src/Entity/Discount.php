@@ -32,17 +32,6 @@ class Discount
     private $percentage;
 
     /**
-     * Discount constructor.
-     * @param string $name
-     * @param int $percentage
-     */
-    public function __construct(string $name, int $percentage)
-    {
-        $this->name = $name;
-        $this->percentage = $percentage;
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -51,9 +40,9 @@ class Discount
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -67,9 +56,9 @@ class Discount
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPercentage(): int
+    public function getPercentage(): ?int
     {
         return $this->percentage;
     }

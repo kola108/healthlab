@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Discount{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+
+        <a href="{{ path('users_add') }}">Add user</a>
+
+        {% for item in list  %}
+            <h2>{{ item.email }}</h2>
+            <p>role: <span>{{ item.role }}</span></p>
+            <a href="{{ path('user_delete', {'userId': item.id}) }}">Delete user</a>
+            <a href="{{ path('user_edit', {'userId': item.id}) }}">Edit user</a>
+        {% endfor %}
+    </div>
+{% endblock %}

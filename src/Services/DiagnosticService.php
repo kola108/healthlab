@@ -31,16 +31,16 @@ class DiagnosticService
     /**
      * @param Diagnostic $diagnostic
      */
-    public function removeItem(Diagnostic $diagnostic)
+    public function saveItem(Diagnostic $diagnostic)
     {
-        $this->diagnosticRepository->delete($diagnostic);
+        $this->diagnosticRepository->save($diagnostic);
     }
 
     /**
      * @param Diagnostic $diagnostic
      */
-    public function saveItem(Diagnostic $diagnostic)
+    public function removeItem(Diagnostic $diagnostic)
     {
-        $this->diagnosticRepository->save($diagnostic);
+        $this->diagnosticRepository->delete($diagnostic);
     }
 }

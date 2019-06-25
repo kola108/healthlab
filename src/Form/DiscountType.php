@@ -1,15 +1,16 @@
 <?php
 
+
 namespace App\Form;
 
-use App\Entity\Diagnostic;
+
+use App\Entity\Discount;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class DiagnosticType extends AbstractType
+class DiscountType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $formBuilder
@@ -19,8 +20,7 @@ class DiagnosticType extends AbstractType
     {
         $formBuilder
             ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('price', TextType::class)
+            ->add('percentage', TextType::class)
         ;
     }
 
@@ -30,7 +30,7 @@ class DiagnosticType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Diagnostic::class,
+            'data_class' => Discount::class,
         ]);
     }
 }

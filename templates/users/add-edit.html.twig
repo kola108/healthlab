@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Discount item{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
+
+        {{ form_errors(form) }}
+
+        {#{{ form_label(form.address) }}
+        {{ form_errors(form.name) }}#}
+        <div>
+            {{ form_widget(form.email, {'attr': {'class': ''}}) }}
+        </div>
+
+        {#{{ form_label(form.address) }}
+        {{ form_errors(form.name) }}#}
+        <div>
+            {{ form_widget(form.password, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            {{ form_widget(form.role, {'attr': {'class': ''}}) }}
+        </div>
+
+        {#{{ form_rest(form) }}#}
+
+        <button type="submit" name="create" class="">
+            {% if mode == 'add' %} Create {% else %} Edit {% endif %}
+        </button>
+
+    {{ form_end(form) }}
+
+    <a href="{{ path('users') }}">Back</a>
+{% endblock %}
