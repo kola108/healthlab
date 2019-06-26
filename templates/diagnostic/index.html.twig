@@ -10,14 +10,14 @@
 
 <div class="example-wrapper">
 
-        <a href="{{ path('diagnostic_add') }}">Add diagnostic</a>
+        <a href="{{ path('diagnostic_add') }}">Add item</a>
 
     {% for item in list  %}
         <h2>{{ item.name }}</h2>
         <p>description: <span>{{ item.description }}</span></p>
         <p>price: <span>{{ item.price }}</span></p>
-        <a href="{{ path('diagnostic_delete', {'diagnosticId': item.id}) }}">Delete diagnostic</a>
-        <a href="{{ path('diagnostic_edit', {'diagnosticId': item.id}) }}">Edit diagnostic</a>
+        <a href="{{ path('diagnostic_delete', {'diagnosticId': item.id}) }}">Delete item</a>
+        <a href="{{ path('diagnostic_edit', {'diagnosticId': item.id}) }}">Edit item</a>
     {% endfor %}
 </div>
 {% endblock %}

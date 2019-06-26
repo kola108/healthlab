@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Diagnostic item!{% endblock %}
+{% block title %}Product Type item{% endblock %}
 
 {% block body %}
     {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
@@ -15,16 +15,6 @@
 
         {#{{ form_label(form.address) }}
         {{ form_errors(form.name) }}#}
-        <div>
-            description: {{ form_widget(form.description, {'attr': {'class': ''}}) }}
-        </div>
-
-        {#{{ form_label(form.address) }}
-        {{ form_errors(form.name) }}#}
-        <div>
-            price: {{ form_widget(form.price, {'attr': {'class': ''}}) }}
-        </div>
-
         {#{{ form_rest(form) }}#}
 
         <button type="submit" name="create" class="">
@@ -33,5 +23,5 @@
 
     {{ form_end(form) }}
 
-    <a href="{{ path('diagnostic') }}">Back</a>
+    <a href="{{ path('product_types') }}">Back</a>
 {% endblock %}

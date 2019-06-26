@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add Discount item{% endblock %}
+{% block title %}Discount item{% endblock %}
 
 {% block body %}
     {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
@@ -10,13 +10,13 @@
         {#{{ form_label(form.address) }}
         {{ form_errors(form.name) }}#}
         <div>
-            {{ form_widget(form.name, {'attr': {'class': ''}}) }}
+            name: {{ form_widget(form.name, {'attr': {'class': ''}}) }}
         </div>
 
         {#{{ form_label(form.address) }}
         {{ form_errors(form.name) }}#}
         <div>
-            {{ form_widget(form.percentage, {'attr': {'class': ''}}) }}
+            percentage: {{ form_widget(form.percentage, {'attr': {'class': ''}}) }}
         </div>
 
         {#{{ form_rest(form) }}#}

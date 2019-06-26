@@ -10,13 +10,13 @@
 
     <div class="example-wrapper">
 
-        <a href="{{ path('discount_add') }}">Add discount</a>
+        <a href="{{ path('discount_add') }}">Add item</a>
 
         {% for item in list  %}
             <h2>{{ item.name }}</h2>
             <p>percentage: <span>{{ item.percentage }}</span></p>
-            <a href="{{ path('discount_delete', {'discountId': item.id}) }}">Delete discount</a>
-            <a href="{{ path('discount_edit', {'discountId': item.id}) }}">Edit discount</a>
+            <a href="{{ path('discount_delete', {'discountId': item.id}) }}">Delete item</a>
+            <a href="{{ path('discount_edit', {'discountId': item.id}) }}">Edit item</a>
         {% endfor %}
     </div>
 {% endblock %}

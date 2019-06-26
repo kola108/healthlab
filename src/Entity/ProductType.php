@@ -30,15 +30,6 @@ class ProductType
      */
     private $products;
 
-    /**
-     * ProductType constructor.
-     * @param string $name
-     */
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-        $this->products = new ArrayCollection();
-    }
 
     /**
      * @return int
@@ -49,9 +40,9 @@ class ProductType
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -65,9 +56,9 @@ class ProductType
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|null
      */
-    public function getProducts(): ArrayCollection
+    public function getProducts(): ?ArrayCollection
     {
         return $this->products;
     }
@@ -78,14 +69,6 @@ class ProductType
     public function setProduct(Product $product): void
     {
         $this->products[] = $product;
-    }
-
-    /**
-     * @param Product $product
-     */
-    public function removeProduct(Product $product): void
-    {
-        $this->products->removeElement($product);
     }
 
 }

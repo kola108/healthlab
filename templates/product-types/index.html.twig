@@ -10,13 +10,12 @@
 
     <div class="example-wrapper">
 
-        <a href="{{ path('users_add') }}">Add item</a>
+        <a href="{{ path('product_type_add') }}">Add item</a>
 
         {% for item in list  %}
-            <h2>{{ item.email }}</h2>
-            <p>role: <span>{{ item.role }}</span></p>
-            <a href="{{ path('user_delete', {'userId': item.id}) }}">Delete item</a>
-            <a href="{{ path('user_edit', {'userId': item.id}) }}">Edit item</a>
+            <h2>{{ item.name }}</h2>
+            <a href="{{ path('product_type_delete', {'productTypeId': item.id}) }}">Delete item</a>
+            <a href="{{ path('product_type_edit', {'productTypeId': item.id}) }}">Edit item</a>
         {% endfor %}
     </div>
 {% endblock %}
