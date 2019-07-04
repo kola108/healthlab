@@ -62,23 +62,6 @@ class Product
     private $productType;
 
     /**
-     * Products constructor.
-     * @param string $nameShort
-     * @param string $nameFull
-     * @param string|null $description
-     * @param float $priceBase
-     */
-    public function __construct(string $nameShort, string $nameFull, ?string $description, float $priceBase)
-    {
-        $this->nameShort = $nameShort;
-        $this->nameFull = $nameFull;
-        $this->description = $description;
-        $this->priceBase = $priceBase;
-        $this->bodySystems = new ArrayCollection();
-        $this->medicationGoals = new ArrayCollection();
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
@@ -87,9 +70,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNameShort(): string
+    public function getNameShort(): ?string
     {
         return $this->nameShort;
     }
@@ -103,9 +86,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNameFull(): string
+    public function getNameFull(): ?string
     {
         return $this->nameFull;
     }
@@ -135,9 +118,9 @@ class Product
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPriceBase(): float
+    public function getPriceBase(): ?float
     {
         return $this->priceBase;
     }
@@ -151,9 +134,9 @@ class Product
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|null
      */
-    public function getBodySystems(): ArrayCollection
+    public function getBodySystems(): ?ArrayCollection
     {
         return $this->bodySystems;
     }
@@ -173,9 +156,9 @@ class Product
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|null
      */
-    public function getMedicationGoals(): ArrayCollection
+    public function getMedicationGoals(): ?ArrayCollection
     {
         return $this->medicationGoals;
     }
@@ -197,9 +180,9 @@ class Product
     }
 
     /**
-     * @return ProductType
+     * @return ProductType|null
      */
-    public function getProductType(): ProductType
+    public function getProductType(): ?ProductType
     {
         return $this->productType;
     }

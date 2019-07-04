@@ -31,16 +31,6 @@ class MedicationGoal
     private $products;
 
     /**
-     * MedicationGoal constructor.
-     * @param string $name
-     */
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-        $this->products = new ArrayCollection();
-    }
-
-    /**
      * @return int
      */
     public function getId(): int

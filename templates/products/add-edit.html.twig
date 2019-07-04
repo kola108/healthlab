@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Type item{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
+
+        {{ form_errors(form) }}
+
+        {#{{ form_label(form.address) }}
+        {{ form_errors(form.name) }}#}
+        <div>
+            name short: {{ form_widget(form.nameShort, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            name full: {{ form_widget(form.nameFull, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            description: {{ form_widget(form.description, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            price: {{ form_widget(form.priceBase, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            body systems: {{ form_widget(form.bodySystems, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            medication goals: {{ form_widget(form.medicationGoals, {'attr': {'class': ''}}) }}
+        </div>
+
+        <div>
+            product type: {{ form_widget(form.productType, {'attr': {'class': ''}}) }}
+        </div>
+
+        {#{{ form_label(form.address) }}
+        {{ form_errors(form.name) }}#}
+        {#{{ form_rest(form) }}#}
+
+        <button type="submit" name="create" class="">
+            {% if mode == 'add' %} Create {% else %} Edit {% endif %}
+        </button>
+
+    {{ form_end(form) }}
+
+    <a href="{{ path('products') }}">Back</a>
+{% endblock %}

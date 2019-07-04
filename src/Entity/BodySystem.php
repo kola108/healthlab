@@ -32,16 +32,6 @@ class BodySystem
     private $products;
 
     /**
-     * BodySystem constructor.
-     * @param string $name
-     */
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-        $this->products = new ArrayCollection();
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
