@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
+
+    {{ form_errors(form) }}
+    {{ form_errors(form.email) }}
+
+    <div>
+        email: {{ form_widget(form.email, {'attr': {'class': ''}}) }}
+    </div>
+
+    <div>
+        first name: {{ form_widget(form.firstname, {'attr': {'class': ''}}) }}
+    </div>
+
+    <div>
+        last name: {{ form_widget(form.lastname, {'attr': {'class': ''}}) }}
+    </div>
+
+    <div>
+        password: {{ form_widget(form.password, {'attr': {'class': ''}}) }}
+    </div>
+
+    {#{{ form_label(form.address) }}
+    {{ form_errors(form.name) }}#}
+    {#{{ form_rest(form) }}#}
+
+    <button type="submit" name="create" class="">
+        register
+    </button>
+
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+    <form method="post" class="form-signin login-form" novalidate="novalidate">
+        <h1 class="h3 font-weight-normal head-title login-head ">Login</h1>
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey }}</div>
+        {% endif %}
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <span>Username</span>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="your email" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <span>Password</span>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="your password" required>
+        </div>
+        <div class="row flex-content mb-15">
+            <div class="col-sm-6">
+                <button class="btn login_btn color-btn" type="submit">Login</button>
+            </div>
+            {#<div class="col-sm-6 ling_up">
+                <a class="card-link" href="{{ path('app_user_registration') }}">{{ 'login.sign_up' | trans }}</a>
+                <a class="card-link" href="{{ path('app_password_reset') }}">{{ 'login.forgot_password' | trans }}</a>
+            </div>#}
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    </form>
+{% endblock %}
