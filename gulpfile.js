@@ -1,13 +1,11 @@
 const   gulp            = require('gulp'),
         sass            = require('gulp-sass'),
-        concat          = require('gulp-concat'),
-        uglify          = require('gulp-uglifyjs'),
+        uglify          = require('gulp-uglify-es').default,
         cssnano         = require('gulp-cssnano'),
         rename          = require('gulp-rename'),
         imagemin        = require('gulp-imagemin'),
         pngquant        = require('imagemin-pngquant'),
         autoprefixer    = require('gulp-autoprefixer');
-        //browserSync = require('browser-sync');
 
 gulp.task('sass', function () {
     return gulp.src('assets/sass/*.sass')
@@ -21,17 +19,16 @@ gulp.task('sass', function () {
 gulp.task('js-minify', function () {
     return gulp.src('assets/js/*.js')
         .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('js-libs-minify', function () {
     return gulp.src('assets/libs/*.js')
         .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('public/js'));
 });
-
-/*.pipe(concat('libs.min.js'))
-.pipe(rename({suffix: '.min'}))*/
 
 gulp.task('img', function () {
     return gulp.src('assets/img/**/*')
@@ -47,5 +44,5 @@ gulp.task('img', function () {
 gulp.task('build', gulp.series('sass', 'js-minify', 'js-libs-minify', 'img'));
 
 gulp.task('watch', function () {
-    gulp.watch('assets/sass/*.sass', gulp.series('sass'));
+    gulp.watch('assets/', gulp.series('sass', 'js-minify'));
 });
