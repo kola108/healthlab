@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Entity\ProductType;
 use App\Form\ProductTypeType;
 use App\Services\ProductTypeService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,8 +26,7 @@ class ProductTypeController extends AbstractController
     }
 
     /**
-     * @Route("/product-types", name="product_types")
-     * @Method("GET")
+     * @Route("/product-types", name="product_types", methods={"GET"})
     */
     public function index()
     {
@@ -71,7 +69,7 @@ class ProductTypeController extends AbstractController
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function editProductType(Request $request, ProductType $productType)
+    public function editProductType(Request $request, ProductType $productType, $productTypeId = 1)
     {
         $form = $this->createForm(ProductTypeType::class, $productType);
 
@@ -90,7 +88,6 @@ class ProductTypeController extends AbstractController
 
     /**
      * @Route("product-types/delete/{productTypeId}", name="product_type_delete")
-     * @Method("DELETE")
      * @ParamConverter("productType", options={"mapping": {"productTypeId" : "id"}})
      * @param ProductType $productType
      * @return \Symfony\Component\HttpFoundation\RedirectResponse

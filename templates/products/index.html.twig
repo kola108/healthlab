@@ -10,7 +10,9 @@
 
     <div class="example-wrapper">
 
-        <a href="{{ path('product_add') }}">Add item</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('product_add') }}">Add item</a>
+        {% endif %}
 
         {% for item in list  %}
             name: <h2>{{ item.nameFull }}</h2>
@@ -24,8 +26,11 @@
             {% endfor %}
             product type: <p>{{ item.productType }}</p>
 
-            <a href="{{ path('product_delete', {'productId': item.id}) }}">Delete item</a>
-            <a href="{{ path('product_edit', {'productId': item.id}) }}">Edit item</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('product_delete', {'productId': item.id}) }}">Delete item</a>
+                <a href="{{ path('product_edit', {'productId': item.id}) }}">Edit item</a>
+            {% endif %}
+
         {% endfor %}
     </div>
 {% endblock %}

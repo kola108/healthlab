@@ -3,10 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% include 'layout/header-nav.html.twig'%}
+
+        {% set currentPath = path(app.request.attributes.get('_route')) %}
+
+        {% if currentPath != '/login' and currentPath != '/registration' %}
+            {% include 'layout/header-nav.html.twig' %}
+        {% endif %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -71,6 +71,12 @@ class User implements UserInterface
     private $isActive = true;
 
     /**
+     * @var Review
+     * @ORM\ManyToOne(targetEntity="App\Entity\Review", inversedBy="users")
+    */
+    private $review;
+
+    /**
      * @return string
      */
     public function __toString() {
@@ -337,6 +343,22 @@ class User implements UserInterface
         }
 
         return false;
+    }
+
+    /**
+     * @return Review|null
+     */
+    public function getProductType(): ?Review
+    {
+        return $this->review;
+    }
+
+    /**
+     * @param Review $review
+     */
+    public function setProductType(Review $review): void
+    {
+        $this->review = $review;
     }
 
 }

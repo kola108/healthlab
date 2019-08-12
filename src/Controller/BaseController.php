@@ -24,6 +24,22 @@ class BaseController extends AbstractController
     }
 
     /**
+     * @Route("/about", name="about")
+     */
+    public function about()
+    {
+        return $this->render('layout/about.html.twig');
+    }
+
+    /**
+     * @Route("/reviews", name="reviews")
+     */
+    public function reviews()
+    {
+        return $this->render('layout/reviews.html.twig');
+    }
+
+    /**
      * @Route("/registration", name="registration")
      * @param Request $request
      * @param EntityManagerInterface $em

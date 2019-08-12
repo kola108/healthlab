@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Diagnostic;
 use App\Form\DiagnosticType;
 use App\Services\DiagnosticService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -26,8 +25,7 @@ class DiagnosticController extends AbstractController
     }
 
     /**
-     * @Route("/diagnostic", name="diagnostic")
-     * @Method("GET")
+     * @Route("/diagnostic", name="diagnostic", methods={"GET"})
      */
     public function index()
     {
@@ -39,7 +37,6 @@ class DiagnosticController extends AbstractController
 
     /**
      * @Route("diagnostic/add", name="diagnostic_add")
-     * @Method("POST")
      * @param Request $request
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -62,13 +59,12 @@ class DiagnosticController extends AbstractController
 
     /**
      * @Route("diagnostic/edit/{diagnosticId}", name="diagnostic_edit")
-     * @Method("PUT")
      * @ParamConverter("diagnostic", options={"mapping": {"diagnosticId": "id"}})
      * @param Request $request
      * @param Diagnostic $diagnostic
      * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function updateDiagnostic(Request $request, Diagnostic $diagnostic)
+    public function updateDiagnostic(Request $request, Diagnostic $diagnostic, $diagnosticId = 1)
     {
         $form = $this->createForm(DiagnosticType::class, $diagnostic);
 
@@ -86,7 +82,6 @@ class DiagnosticController extends AbstractController
 
     /**
      * @Route("diagnostic/delete/{diagnosticId}", name="diagnostic_delete")
-     * @Method("DELETE")
      * @ParamConverter("diagnostic", options={"mapping": {"diagnosticId": "id"}})
      * @param Diagnostic $diagnostic
      * @return RedirectResponse

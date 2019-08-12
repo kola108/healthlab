@@ -1,37 +1,59 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Registration{% endblock %}
-
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/login.min.css') }}">{% endblock %}
 {% block body %}
-    {{ form_start(form, {'attr': {'class':"your_class_name"}}) }}
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {{ form_start(form, {'attr': {'class':"login-form"}}) }}
 
-    {{ form_errors(form) }}
-    {{ form_errors(form.email) }}
+                        <div class="login-header d-flex justify-content-between mb-3">
+                            <h1>Registration</h1>
+                            <a class="registration-link" href="{{ path('login') }}">
+                                <i class="icon-navigation-up-circle"></i>
+                                <span>Login</span>
+                            </a>
+                        </div>
 
-    <div>
-        email: {{ form_widget(form.email, {'attr': {'class': ''}}) }}
+                        {{ form_errors(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'your email', 'required': 'required', 'autofocus': 'autofocus'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.firstname) }}
+                            {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'your first name', 'required': 'required'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.lastname) }}
+                            {{ form_widget(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'your last name', 'required': 'required'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.password) }}
+                            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'your password', 'required': 'required'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm">Password confirm</label>
+                            <input id="password-confirm" type="password" name="password" class="form-control" placeholder="confirm your password" required>
+                        </div>
+
+                        <div class="d-flex mb-15">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                            <a class="btn btn-light ml-3" href="{{ path('index') }}">Cancel</a>
+                        </div>
+
+                        {# {{ form_errors(form.name) }} #}
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div>
-        first name: {{ form_widget(form.firstname, {'attr': {'class': ''}}) }}
-    </div>
-
-    <div>
-        last name: {{ form_widget(form.lastname, {'attr': {'class': ''}}) }}
-    </div>
-
-    <div>
-        password: {{ form_widget(form.password, {'attr': {'class': ''}}) }}
-    </div>
-
-    {#{{ form_label(form.address) }}
-    {{ form_errors(form.name) }}#}
-    {#{{ form_rest(form) }}#}
-
-    <button type="submit" name="create" class="">
-        register
-    </button>
-
-    {{ form_end(form) }}
 
 {% endblock %}

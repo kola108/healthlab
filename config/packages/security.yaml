@@ -31,11 +31,12 @@ security:
                     - App\Security\LoginFormAuthenticator
 
     access_control:
-        - { path: ^/product-types, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/diagnostic, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/discounts, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/products, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/home, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/product-types, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/diagnostic, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/discounts, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/products, roles: IS_AUTHENTICATED_FULLY }
+
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/signup/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }

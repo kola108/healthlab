@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Entity\Discount;
 use App\Form\DiscountType;
 use App\Services\DiscountService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,8 +26,7 @@ class DiscountController extends AbstractController
     }
 
     /**
-     * @Route("/discounts", name="discounts")
-     * @Method("GET")
+     * @Route("/discounts", name="discounts", methods={"GET"})
     */
     public function index()
     {
@@ -71,8 +69,9 @@ class DiscountController extends AbstractController
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function editDiscount(Request $request, Discount $discount)
+    public function editDiscount(Request $request, Discount $discount, $discountId = 1)
     {
+
         $form = $this->createForm(DiscountType::class, $discount);
 
         $form->handleRequest($request);
@@ -90,7 +89,6 @@ class DiscountController extends AbstractController
 
     /**
      * @Route("discounts/delete/{discountId}", name="discount_delete")
-     * @Method("DELETE")
      * @ParamConverter("discount", options={"mapping": {"discountId" : "id"}})
      * @param Discount $discount
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
