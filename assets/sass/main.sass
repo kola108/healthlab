@@ -1,6 +1,50 @@
+$primary: #5C9B20
+
+
+a
+  text-decoration: none !important
+  color: $primary !important
+  transition: opacity 0.5s ease
+  font-weight: bold
+
+  &:hover
+    opacity: 0.6
+
+
+.btn-primary
+  background-color: $primary !important
+  border-color: $primary !important
+  transition: opacity 0.5s ease
+
+  &:hover
+    opacity: 0.8
+
+
+.form-control
+
+  &:focus
+    border-color: $primary
+    box-shadow: 0 0 0 0.2rem rgba(139,195,74,0.5)
+
+
 .registration-link
   font-size: 14px
   text-decoration: none !important
 
+
 .btn
   min-width: 100px
+
+
+.header
+
+  .header-nav
+    display: flex
+    justify-content: space-between
+    padding: 8px
+
+    nav
+      max-width: 500px
+
+      a
+        margin-right: 10px

@@ -9,12 +9,16 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-
         {% set currentPath = path(app.request.attributes.get('_route')) %}
 
-        {% if currentPath != '/login' and currentPath != '/registration' %}
-            {% include 'layout/header-nav.html.twig' %}
-        {% endif %}
+        <div class="header">
+            <div class="header-nav">
+                {% if currentPath != '/login' and currentPath != '/registration' %}
+                    {% include 'layout/header-nav.html.twig' %}
+                {% endif %}
+            </div>
+        </div>
+
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
